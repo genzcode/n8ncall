@@ -1,0 +1,17 @@
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/twiml/basic', (req, res) => {
+  res.type('text/xml');
+  res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+  <Say language="id-ID" voice="Polly.Ida">
+    Halo, ini adalah panggilan dari ADASKYNET. Terima kasih telah menggunakan layanan kami.
+  </Say>
+</Response>`);
+});
+
+app.listen(port, () => {
+  console.log(`TwiML server listening on port ${port}`);
+});
